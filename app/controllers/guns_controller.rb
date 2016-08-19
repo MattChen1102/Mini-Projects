@@ -3,4 +3,7 @@ class GunsController < ApplicationController
 		@guns = Gun.all
 	end
 
+	def new
+		@gun = Gun.new
+	end	
 end

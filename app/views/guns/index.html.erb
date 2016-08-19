@@ -4,8 +4,8 @@
     <thead>
       <tr>
         <th>槍名</th>
-        <th>槍枝敘述</th>
-        <th>槍枝年齡</th>
+        <th>槍枝射速(發/分鐘)</th>
+        <th>槍枝年份</th>
         <th>新增</th>
         <th>編輯</th>
         <th>刪除</th>
@@ -19,7 +19,7 @@
 	        <td><%=gun.capacity%></td>
 	        <td><%= link_to "Add More gun", new_gun_path%></td>
 	        <td><%= link_to "Edit Messages", new_gun_path%></td>
-	        <td><%= link_to "Kill it", new_gun_path%></td>
+	        <td><%= button_to "Kill Me", new_gun_path%></td>
 	      </tr>
 	    <%end%>
     </tbody>
