@@ -1,5 +1,6 @@
 class GunsController < ApplicationController
 	def index
-		@gun = Guns.all
+		@guns = Gun.all
 	end
+
 end
