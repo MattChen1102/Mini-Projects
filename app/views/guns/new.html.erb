@@ -1,4 +1,4 @@
-<%= form_for @gun, :url => new_gun_path do |f| %>
+<%= form_for @gun, :url => guns_path do |f| %>
     <%= render :partial => 'form', :locals => { :f => f } %>
     <%= f.submit "建立" %>
 <% end %>
