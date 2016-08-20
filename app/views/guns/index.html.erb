@@ -1,6 +1,6 @@
 <h1>Welcome to Matt's Gun heaven!</h1>
 
-<table class="table table-condensed">
+<table class="table table-hover">
     <thead>
       <tr>
         <th>槍名</th>
@@ -18,12 +18,13 @@
 	        <td><%=gun.description%></td>
 	        <td><%=gun.capacity%></td>
 	        <td><%= link_to "Add More gun", new_gun_path%></td>
-	        <td><%= link_to "Edit Messages", new_gun_path%></td>
-	        <td><%= button_to "Kill Me", new_gun_path%></td>
+	        <td><%= link_to "Edit Messages", edit_gun_path(gun)%></td>
+	        <td><%= button_to "Kill Me", gun_path(gun) , :method => :delete,:data => { :confirm => "Are you sure?" }%></td>
 	      </tr>
 	    <%end%>
     </tbody>
 </table>
 
+<%= paginate @guns %>
 
 

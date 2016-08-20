@@ -1,0 +1,5 @@
+<%= form_for @gun, :url => gun_path(@gun), :method => :patch do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+	<%= f.submit "更新" %>
+<% end %>
+

@@ -1,3 +1,3 @@
 class Gun < ApplicationRecord
-	validates_presence_of :name, :description
+	validates_presence_of :name, :description , :capacity
 end
