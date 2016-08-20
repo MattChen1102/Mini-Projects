@@ -44,7 +44,7 @@ class GunsController < ApplicationController
 private
 
   def gun_params
-    params.require(:gun).permit(:name, :description, :capacity)
+    params.require(:gun).permit(:name, :description, :capacity , :date , :datetime)
   end   
 
   def set_gun
