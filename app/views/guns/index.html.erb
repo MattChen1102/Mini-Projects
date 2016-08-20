@@ -5,7 +5,9 @@
       <tr>
         <th>槍名</th>
         <th>槍枝射速(發/分鐘)</th>
-        <th>槍枝年份</th>
+        <th>起源年份</th>
+        <th>製造時間</th>
+        <th>上架日期</th>
         <th>新增</th>
         <th>編輯</th>
         <th>刪除</th>
@@ -17,6 +19,8 @@
 	        <td><%= gun.name%></td>
 	        <td><%=gun.description%></td>
 	        <td><%=gun.capacity%></td>
+          <td><%=gun.date%></td>
+          <td><%=gun.datetime%></td>
 	        <td><%= link_to "Add More gun", new_gun_path%></td>
 	        <td><%= link_to "Edit Messages", edit_gun_path(gun)%></td>
 	        <td><%= button_to "Kill Me", gun_path(gun) , :method => :delete,:data => { :confirm => "Are you sure?" }%></td>
