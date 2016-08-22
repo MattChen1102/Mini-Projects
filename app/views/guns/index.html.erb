@@ -1,5 +1,11 @@
 <h1>Welcome to Matt's Gun heaven!</h1>
-
+<br>
+<%= form_for @gun do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= f.submit "建立/更新" , :class => "btn btn-primary" %>
+<%end%>
+<br>
+<br>
 <table class="table table-hover">
     <thead>
       <tr>
@@ -8,8 +14,7 @@
         <th>起源年份</th>
         <th>製造時間</th>
         <th>上架日期</th>
-        <th>新增</th>
-        <th>編輯</th>
+        <th>編輯<th>
         <th>刪除</th>
       </tr>
     </thead>
@@ -17,18 +22,15 @@
       <% @guns.each do|gun| %>
 	      <tr>
 	        <td><%= gun.name%></td>
-	        <td><%=gun.description%></td>
-	        <td><%=gun.capacity%></td>
-          <td><%=gun.date%></td>
-          <td><%=gun.datetime%></td>
-	        <td><%= link_to "Add More gun", new_gun_path%></td>
-	        <td><%= link_to "Edit Messages", edit_gun_path(gun)%></td>
-	        <td><%= button_to "Kill Me", gun_path(gun) , :method => :delete,:data => { :confirm => "Are you sure?" }%></td>
+	        <td><%= gun.description%></td>
+	        <td><%= gun.capacity%></td>
+          <td><%= gun.date%></td>
+          <td><%= gun.updated_at%></td>
+          <td><%= link_to "Edit Me" , guns_path(:mgun => gun) %></td>
+	        <td><%= button_to "Kill Me", gun_path(gun),:method => :delete,:data => { :confirm => "Are you sure?" }%></td>
 	      </tr>
 	    <%end%>
     </tbody>
 </table>
 
 <%= paginate @guns %>
-
-
