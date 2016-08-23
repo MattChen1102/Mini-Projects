@@ -1,3 +1,11 @@
+<% if @gun.errors.any? %>
+      <ul>
+      <% @gun.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
+
 <div class = "from-group">
 	<%= f.label :name, "槍名" %>
 	<%= f.text_field :name , :class => "from_control" %>

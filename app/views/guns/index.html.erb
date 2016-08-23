@@ -26,8 +26,8 @@
 	        <td><%= gun.capacity%></td>
           <td><%= gun.date%></td>
           <td><%= gun.updated_at%></td>
-          <td><%= link_to "Edit Me" , guns_path(:mgun => gun) %></td>
-	        <td><%= button_to "Kill Me", gun_path(gun),:method => :delete,:data => { :confirm => "Are you sure?" }%></td>
+          <td><%= link_to "Edit Me" , edit_gun_path(gun , :page => params[:page]) %></td>
+	        <td><%= button_to "Kill Me", gun_path(gun, :page => params[:page]),:method => :delete,:data => { :confirm => "Are you sure?" }%></td>
 	      </tr>
 	    <%end%>
     </tbody>

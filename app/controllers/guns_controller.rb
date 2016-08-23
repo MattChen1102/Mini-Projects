@@ -1,11 +1,11 @@
 class GunsController < ApplicationController
-	before_action :set_gun, :only => [ :show, :update, :destroy]
+	before_action :set_gun, :only => [ :show, :update, :destroy, :edit]
 
   def index
 		  @guns = Gun.page(params[:page]).per(10)
 
-      if params[:mgun]
-         @gun = Gun.find(params[:mgun])
+      if params[:id]
+         @gun = Gun.find(params[:id])
       else
          @gun = Gun.new
       end
@@ -26,8 +26,11 @@ class GunsController < ApplicationController
     end 
   end
 
-  # def edit
-  # end	
+  def edit
+    @guns = Gun.page(params[:page]).per(10)
+
+    render :index
+  end	
 
   def show
       @page_title = @gun.name
@@ -35,19 +38,30 @@ class GunsController < ApplicationController
 
   def update
     	# if
-         @gun.update(gun_params)
-         flash[:notice]="更新成功！"
-         redirect_to gun_path(@gun)
-      # else
-      # 	 render :action => :edit  
+      #    @gun.update(gun_params)
+      #    flash[:notice]="更新成功！"
+      #    redirect_to gun_path(@gun)
+      # # else
+      #  	 render :action => :edit  
       #end
+    @guns = Gun.page(params[:page]).per(10)
+
+       if  @gun.update(gun_params)
+           flash[:notice]="更新成功！"
+           redirect_to gun_path(@gun)
+        else
+           render :action => :index  
+        end
+        
   end
   
   def destroy
-        @gun.destroy
+
+    @gun.destroy
         flash[:alert] = "刪除成功！"     
-      	redirect_to guns_path(params[:page])
+      	redirect_to guns_path(:page=>params[:page])
   end
+
 
 private
 
