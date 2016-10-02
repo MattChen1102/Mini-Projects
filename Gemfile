@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem "kaminari"
 gem "mysql2"
+gem 'capistrano-rails', :group => :development
+gem 'capistrano-passenger', :group => :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.6'
